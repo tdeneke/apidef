@@ -1,88 +1,404 @@
-<!DOCTYPE html>
-<head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>API Reference</title>
+    <link rel="stylesheet" type="text/css" href="site.css" media="screen" />
+  </head>
+  <body>
+  <h1>Uber API</h1>
+    <div class="app-desc">Move your app forward with the Uber API for </div>
+    
+    <div class="app-desc">Contact Info: <a href="support@unico.com.au">support@unico.com.au</a></div>
+    <div class="app-desc">Version: 1.0.0</div>
+    <div class="license-info">Apache 2.0</div>
+    <div class="license-url">http://www.apache.org/licenses/LICENSE-2.0.html</div>
+  <h2>Access</h2>
+  <div class="method-summary">Customize this message as you see fit!</div>
+  <h2>Methods</h2>
+  
+  
+  
+  <div class="method">
+    <div class="method-path"><pre class="get"><code class="huge"><span>get</span>: /estimates/price</code></pre></div>
+    <div class="method-tags"> <span class="method-tag">Estimates</span></div>
+    <div class="method-summary"><span class="nickname">estimatesPriceGet</span> Price Estimates</div>
+    <div class="method-notes">The Price Estimates endpoint returns an estimated price range\nfor each product offered at a given location. The price estimate is\nprovided as a formatted string with the full price range and the localized\ncurrency symbol.&lt;br&gt;&lt;br&gt;The response also includes low and high estimates,\nand the [ISO 4217](http://en.wikipedia.org/wiki/ISO_4217) currency code for\nsituations requiring currency conversion. When surge is active for a particular\nproduct, its surge_multiplier will be greater than 1, but the price estimate\nalready factors in this multiplier.\n</div>
 
-  <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.css" media="screen">
-  <link rel="stylesheet" type="text/css" href="assets/css/bootstrap-responsive.css" media="screen">
-  <link rel="stylesheet" type="text/css" href="assets/css/style.css">
-  <script src="assets/js/jquery-1.8.3.min.js" type="text/javascript"></script>
-  <script src="assets/js/main.js" type="text/javascript"></script>
+    <h3 class="field-label">Parameters</h3>
+    <div class="field-items">
+      <div class="param">start_latitude (required)</div>
 
-  <title>REST API Resources</title>
-</head>
-<body>
-  <div class="header">
-    <div class="top-bar">
-      <h1 id="logo"><a class="logo" href="/"><span>Swagger</span><span class="light">API Docs</span></a></h1>
-    </div>
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Latitude component of start location. </div>
+      <div class="param">start_longitude (required)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Longitude component of start location. </div>
+      <div class="param">end_latitude (required)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Latitude component of end location. </div>
+      <div class="param">end_longitude (required)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Longitude component of end location. </div>
+      
+    </div>  <!-- field-items -->
+    <h3 class="field-label">Return type</h3>
+
+    <div class="return-type"><a href="#array">array[PriceEstimate]</a></div>
+
+    
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>[ {\n  "high_estimate" : 1.3579000000000001069366817318950779736042022705078125,\n  "product_id" : "aeiou",\n  "low_estimate" : 1.3579000000000001069366817318950779736042022705078125,\n  "surge_multiplier" : 1.3579000000000001069366817318950779736042022705078125,\n  "estimate" : "aeiou",\n  "display_name" : "aeiou",\n  "currency_code" : "aeiou"\n} ]</code></pre>
+    
+  </div> <!-- method -->
+  <hr>
+  
+  <div class="method">
+    <div class="method-path"><pre class="get"><code class="huge"><span>get</span>: /estimates/time</code></pre></div>
+    <div class="method-tags"> <span class="method-tag">Estimates</span></div>
+    <div class="method-summary"><span class="nickname">estimatesTimeGet</span> Time Estimates</div>
+    <div class="method-notes">The Time Estimates endpoint returns ETAs for all products offered at a given location, with the responses expressed as integers in seconds. We recommend that this endpoint be called every minute to provide the most accurate, up-to-date ETAs.</div>
+
+    <h3 class="field-label">Parameters</h3>
+    <div class="field-items">
+      <div class="param">start_latitude (required)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Latitude component of start location. </div>
+      <div class="param">start_longitude (required)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Longitude component of start location. </div>
+      <div class="param">customer_uuid (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Unique customer identifier to be used for experience customization. </div>
+      <div class="param">product_id (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Unique identifier representing a specific product for a given latitude &amp; longitude. </div>
+      
+    </div>  <!-- field-items -->
+    <h3 class="field-label">Return type</h3>
+
+    <div class="return-type"><a href="#array">array[Product]</a></div>
+
+    
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>[ {\n  "image" : "aeiou",\n  "product_id" : "aeiou",\n  "description" : "aeiou",\n  "display_name" : "aeiou",\n  "capacity" : "aeiou"\n} ]</code></pre>
+    
+  </div> <!-- method -->
+  <hr>
+  
+  <div class="method">
+    <div class="method-path"><pre class="get"><code class="huge"><span>get</span>: /history</code></pre></div>
+    <div class="method-tags"> <span class="method-tag">User</span></div>
+    <div class="method-summary"><span class="nickname">historyGet</span> User Activity</div>
+    <div class="method-notes">The User Activity endpoint returns data about a user&#39;s lifetime activity with Uber. The response will include pickup locations and times, dropoff locations and times, the distance of past requests, and information about which products were requested.&lt;br&gt;&lt;br&gt;The history array in the response will have a maximum length based on the limit parameter. The response value count may exceed limit, therefore subsequent API requests may be necessary.</div>
+
+    <h3 class="field-label">Parameters</h3>
+    <div class="field-items">
+      <div class="param">offset (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Offset the list of returned results by this amount. Default is zero. </div>
+      <div class="param">limit (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Number of items to retrieve. Default is 5, maximum is 100. </div>
+      
+    </div>  <!-- field-items -->
+    <h3 class="field-label">Return type</h3>
+
+    <div class="return-type"><a href="#">Activities</a></div>
+
+    
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{\n  "offset" : 123,\n  "limit" : 123,\n  "count" : 123,\n  "history" : [ {\n    "uuid" : "aeiou"\n  } ]\n}</code></pre>
+    
+  </div> <!-- method -->
+  <hr>
+  
+  <div class="method">
+    <div class="method-path"><pre class="get"><code class="huge"><span>get</span>: /me</code></pre></div>
+    <div class="method-tags"> <span class="method-tag">User</span></div>
+    <div class="method-summary"><span class="nickname">meGet</span> User Profile</div>
+    <div class="method-notes">The User Profile endpoint returns information about the Uber user that has authorized with the application.</div>
+
+    <h3 class="field-label">Parameters</h3>
+    <div class="field-items">
+      
+    </div>  <!-- field-items -->
+    <h3 class="field-label">Return type</h3>
+
+    <div class="return-type"><a href="#">Profile</a></div>
+
+    
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{\n  "last_name" : "aeiou",\n  "promo_code" : "aeiou",\n  "first_name" : "aeiou",\n  "email" : "aeiou",\n  "picture" : "aeiou"\n}</code></pre>
+    
+  </div> <!-- method -->
+  <hr>
+  
+  <div class="method">
+    <div class="method-path"><pre class="get"><code class="huge"><span>get</span>: /products</code></pre></div>
+    <div class="method-tags"> <span class="method-tag">Products</span></div>
+    <div class="method-summary"><span class="nickname">productsGet</span> Product Types</div>
+    <div class="method-notes">The Products endpoint returns information about the *Uber* products\noffered at a given location. The response includes the display name\nand other details about each product, and lists the products in the\nproper display order.\n</div>
+
+    <h3 class="field-label">Parameters</h3>
+    <div class="field-items">
+      <div class="param">latitude (required)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Latitude component of location. </div>
+      <div class="param">longitude (required)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Longitude component of location. </div>
+      
+    </div>  <!-- field-items -->
+    <h3 class="field-label">Return type</h3>
+
+    <div class="return-type"><a href="#array">array[Product]</a></div>
+
+    
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>[ {\n  "image" : "aeiou",\n  "product_id" : "aeiou",\n  "description" : "aeiou",\n  "display_name" : "aeiou",\n  "capacity" : "aeiou"\n} ]</code></pre>
+    
+  </div> <!-- method -->
+  <hr>
+  
+  
+
+  <h2>Models</h2>
+  
+  
+  <div class="model">
+    <h3 class="field-label"><a name="Product">Product</a></h3>
+    <div class="field-items">
+      <div class="param">product_id </div><div class="param-desc"><span class="param-type">String</span> Unique identifier representing a specific product for a given latitude &amp; longitude. For example, uberX in San Francisco will have a different product_id than uberX in Los Angeles.</div>
+      <div class="param">description </div><div class="param-desc"><span class="param-type">String</span> Description of product.</div>
+      <div class="param">display_name </div><div class="param-desc"><span class="param-type">String</span> Display name of product.</div>
+      <div class="param">capacity </div><div class="param-desc"><span class="param-type">String</span> Capacity of product. For example, 4 people.</div>
+      <div class="param">image </div><div class="param-desc"><span class="param-type">String</span> Image URL representing the product.</div>
+      
+    </div>  <!-- field-items -->
   </div>
-  <div class="model-container"></div>
-  <div class="content">
-    <div class="box clearfix">
-      <div class="sidebar">
-        <div class="section-box">
-          <div class="section-header">
-            Overview
-          </div>
-          <ul>
-            <li>Getting Started</li>
-          </ul>
-        </div>
-        
-    		
-        <div class="section-box">
-          <div class="section-header">
-            <a href="#!/ProductsApi">ProductsApi</a>
-          </div>
-          <ul>
-			      
-			      
-            <li><a href="#!/ProductsApi#productsGet">productsGet</a></li>
-            
-            
-          </ul>
-        </div>
-        
-        <div class="section-box">
-          <div class="section-header">
-            <a href="#!/UserApi">UserApi</a>
-          </div>
-          <ul>
-			      
-			      
-            <li><a href="#!/UserApi#historyGet">historyGet</a></li>
-            
-            <li><a href="#!/UserApi#meGet">meGet</a></li>
-            
-            
-          </ul>
-        </div>
-        
-        <div class="section-box">
-          <div class="section-header">
-            <a href="#!/EstimatesApi">EstimatesApi</a>
-          </div>
-          <ul>
-			      
-			      
-            <li><a href="#!/EstimatesApi#estimatesPriceGet">estimatesPriceGet</a></li>
-            
-            <li><a href="#!/EstimatesApi#estimatesTimeGet">estimatesTimeGet</a></li>
-            
-            
-          </ul>
-        </div>
-        
-        
-      </div>
-    <div class="non-sidebar">
-      <div class="main-content">
-        <h2>Getting Started</h2>
-        <p>To begin using your fancy HTTP API, follow the steps below.</p>
-        <p>You can add some helpful tips, here</p>
-      </div>
-    </div>
+  
+  
+  
+  <div class="model">
+    <h3 class="field-label"><a name="PriceEstimate">PriceEstimate</a></h3>
+    <div class="field-items">
+      <div class="param">product_id </div><div class="param-desc"><span class="param-type">String</span> Unique identifier representing a specific product for a given latitude &amp; longitude. For example, uberX in San Francisco will have a different product_id than uberX in Los Angeles</div>
+      <div class="param">currency_code </div><div class="param-desc"><span class="param-type">String</span> [ISO 4217](http://en.wikipedia.org/wiki/ISO_4217) currency code.</div>
+      <div class="param">display_name </div><div class="param-desc"><span class="param-type">String</span> Display name of product.</div>
+      <div class="param">estimate </div><div class="param-desc"><span class="param-type">String</span> Formatted string of estimate in local currency of the start location. Estimate could be a range, a single number (flat rate) or \&quot;Metered\&quot; for TAXI.</div>
+      <div class="param">low_estimate </div><div class="param-desc"><span class="param-type">BigDecimal</span> Lower bound of the estimated price.</div>
+      <div class="param">high_estimate </div><div class="param-desc"><span class="param-type">BigDecimal</span> Upper bound of the estimated price.</div>
+      <div class="param">surge_multiplier </div><div class="param-desc"><span class="param-type">BigDecimal</span> Expected surge multiplier. Surge is active if surge_multiplier is greater than 1. Price estimate already factors in the surge multiplier.</div>
+      
+    </div>  <!-- field-items -->
   </div>
-</body>
+  
+  
+  
+  <div class="model">
+    <h3 class="field-label"><a name="Profile">Profile</a></h3>
+    <div class="field-items">
+      <div class="param">first_name </div><div class="param-desc"><span class="param-type">String</span> First name of the Uber user.</div>
+      <div class="param">last_name </div><div class="param-desc"><span class="param-type">String</span> Last name of the Uber user.</div>
+      <div class="param">email </div><div class="param-desc"><span class="param-type">String</span> Email address of the Uber user</div>
+      <div class="param">picture </div><div class="param-desc"><span class="param-type">String</span> Image URL of the Uber user.</div>
+      <div class="param">promo_code </div><div class="param-desc"><span class="param-type">String</span> Promo code of the Uber user.</div>
+      
+    </div>  <!-- field-items -->
+  </div>
+  
+  
+  
+  <div class="model">
+    <h3 class="field-label"><a name="Activity">Activity</a></h3>
+    <div class="field-items">
+      <div class="param">uuid </div><div class="param-desc"><span class="param-type">String</span> Unique identifier for the activity</div>
+      
+    </div>  <!-- field-items -->
+  </div>
+  
+  
+  
+  <div class="model">
+    <h3 class="field-label"><a name="Activities">Activities</a></h3>
+    <div class="field-items">
+      <div class="param">offset </div><div class="param-desc"><span class="param-type">Integer</span> Position in pagination.</div>
+      <div class="param">limit </div><div class="param-desc"><span class="param-type">Integer</span> Number of items to retrieve (100 max).</div>
+      <div class="param">count </div><div class="param-desc"><span class="param-type">Integer</span> Total number of items available.</div>
+      <div class="param">history </div><div class="param-desc"><span class="param-type">array[Activity]</span> </div>
+      
+    </div>  <!-- field-items -->
+  </div>
+  
+  
+  
+  <div class="model">
+    <h3 class="field-label"><a name="Error">Error</a></h3>
+    <div class="field-items">
+      <div class="param">code </div><div class="param-desc"><span class="param-type">Integer</span> </div>
+      <div class="param">message </div><div class="param-desc"><span class="param-type">String</span> </div>
+      <div class="param">fields </div><div class="param-desc"><span class="param-type">String</span> </div>
+      
+    </div>  <!-- field-items -->
+  </div>
+  
+  
+  <style>
+body { 
+	font-family: Trebuchet MS, sans-serif;
+	font-size: 15px;
+	color: #444;
+	margin-right: 24px;
+}
+
+h1	{
+	font-size: 25px;
+}
+h2	{
+	font-size: 20px;
+}
+h3	{
+	font-size: 16px;
+	font-weight: bold;
+}
+hr	{
+	height: 1px;
+	border: 0;
+	color: #ddd;
+	background-color: #ddd;
+	display: none;
+}
+
+.app-desc {
+  clear: both;
+  margin-left: 20px;
+}
+.param-name {
+  width: 100%;
+}
+.license-info {
+  margin-left: 20px;
+}
+
+.license-url {
+  margin-left: 20px;
+}
+
+.model {
+  margin: 0 0 0px 20px;
+}
+
+.method {
+  margin-left: 20px;
+}
+
+.method-notes	{
+	margin: 10px 0 20px 0;
+	font-size: 90%;
+	color: #555;
+}
+
+pre {
+  padding: 10px;
+  margin-bottom: 2px;
+}
+
+pre.get {
+  background-color: #0f6ab4;
+}
+
+pre.post {
+  background-color: #10a54a;
+}
+
+pre.put {
+  background-color: #c5862b;
+}
+
+pre.delete {
+  background-color: #a41e22;
+}
+
+.huge	{
+	color: #fff;
+}
+
+pre.example {
+  background-color: #f3f3f3;
+  padding: 10px;
+  border: 1px solid #ddd;
+}
+
+code {
+  white-space: pre;
+}
+
+.nickname {
+  font-weight: bold;
+}
+
+.method-path {
+  font-size: 1.5em;
+  background-color: #0f6ab4;
+}
+
+.parameter {
+  width: 500px;
+}
+
+.param {
+  width: 500px;
+  padding: 10px 0 0 20px;
+  font-weight: bold;
+}
+
+.param-desc {
+  width: 700px;
+  padding: 0 0 0 20px;
+  color: #777;
+}
+
+.param-type {
+  font-style: italic;
+}
+
+.field-label {
+  padding: 0;
+  margin: 0;
+  clear: both;
+}
+
+.field-items	{
+	padding: 0 0 15px 0;
+	margin-bottom: 15px;
+}
+
+.return-type {
+  clear: both;
+  padding-bottom: 10px;
+}
+
+.param-header {
+  font-weight: bold;
+}
+
+.method-tags {
+  text-align: right;
+}
+
+.method-tag {
+  background: none repeat scroll 0% 0% #24A600;
+  border-radius: 3px;
+  padding: 2px 10px;
+  margin: 2px;
+  color: #FFF;
+  display: inline-block;
+  text-decoration: none;
+}
+  </style>
+  </body>
 </html>
