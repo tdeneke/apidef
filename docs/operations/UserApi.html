@@ -1,0 +1,54 @@
+<div class="main-content">
+  <h2><a name=""></a></h2>
+  <p>This is the  API</p>
+
+  
+  
+  <h2><a name="historyGet"></a>historyGet</h2>
+  <hr>
+  <p></p>
+  <p>The User Activity endpoint returns data about a user&#39;s lifetime activity with Uber. The response will include pickup locations and times, dropoff locations and times, the distance of past requests, and information about which products were requested.&lt;br&gt;&lt;br&gt;The history array in the response will have a maximum length based on the limit parameter. The response value count may exceed limit, therefore subsequent API requests may be necessary.</p>
+  <h3 class="section">URL</h3>
+  <code>https://api.uber.com/v1/history</code>
+  <h3 class="section">HTTP Method</h3>
+  <code>GET</code>
+  <h3 class="section">Response Type</h3>
+  <div class="model" id="Activities"><a href="#">Activities</a></div>
+  <h3 class="section">Parameters</h3>
+  <ul>
+  	
+	  <div class="parameter">
+      
+      
+
+      
+	    <p class="param-description">Offset the list of returned results by this amount. Default is zero.</p>
+	  </div>
+    
+	  <div class="parameter">
+      
+      
+
+      
+	    <p class="param-description">Number of items to retrieve. Default is 5, maximum is 100.</p>
+	  </div>
+    
+  </ul>
+  
+  <h2><a name="meGet"></a>meGet</h2>
+  <hr>
+  <p></p>
+  <p>The User Profile endpoint returns information about the Uber user that has authorized with the application.</p>
+  <h3 class="section">URL</h3>
+  <code>https://api.uber.com/v1/me</code>
+  <h3 class="section">HTTP Method</h3>
+  <code>GET</code>
+  <h3 class="section">Response Type</h3>
+  <div class="model" id="Profile"><a href="#">Profile</a></div>
+  <h3 class="section">Parameters</h3>
+  <ul>
+  	
+  </ul>
+  
+  
+</div>
