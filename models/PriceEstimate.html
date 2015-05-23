@@ -1,0 +1,45 @@
+
+<h2>PriceEstimate</h2>
+  
+<ul class="parameter">
+  <li class="param-required-">product_id : String
+	  <br/>Unique identifier representing a specific product for a given latitude &amp; longitude. For example, uberX in San Francisco will have a different product_id than uberX in Los Angeles
+  </li>
+</ul>
+  
+<ul class="parameter">
+  <li class="param-required-">currency_code : String
+	  <br/>[ISO 4217](http://en.wikipedia.org/wiki/ISO_4217) currency code.
+  </li>
+</ul>
+  
+<ul class="parameter">
+  <li class="param-required-">display_name : String
+	  <br/>Display name of product.
+  </li>
+</ul>
+  
+<ul class="parameter">
+  <li class="param-required-">estimate : String
+	  <br/>Formatted string of estimate in local currency of the start location. Estimate could be a range, a single number (flat rate) or \&quot;Metered\&quot; for TAXI.
+  </li>
+</ul>
+  
+<ul class="parameter">
+  <li class="param-required-">low_estimate : BigDecimal
+	  <br/>Lower bound of the estimated price.
+  </li>
+</ul>
+  
+<ul class="parameter">
+  <li class="param-required-">high_estimate : BigDecimal
+	  <br/>Upper bound of the estimated price.
+  </li>
+</ul>
+  
+<ul class="parameter">
+  <li class="param-required-">surge_multiplier : BigDecimal
+	  <br/>Expected surge multiplier. Surge is active if surge_multiplier is greater than 1. Price estimate already factors in the surge multiplier.
+  </li>
+</ul>
+  

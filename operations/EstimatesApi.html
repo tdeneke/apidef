@@ -1,0 +1,102 @@
+<div class="main-content">
+  <h2><a name=""></a></h2>
+  <p>This is the  API</p>
+
+  
+  
+  <h2><a name="estimatesPriceGet"></a>estimatesPriceGet</h2>
+  <hr>
+  <p></p>
+  <p>The Price Estimates endpoint returns an estimated price range\nfor each product offered at a given location. The price estimate is\nprovided as a formatted string with the full price range and the localized\ncurrency symbol.&lt;br&gt;&lt;br&gt;The response also includes low and high estimates,\nand the [ISO 4217](http://en.wikipedia.org/wiki/ISO_4217) currency code for\nsituations requiring currency conversion. When surge is active for a particular\nproduct, its surge_multiplier will be greater than 1, but the price estimate\nalready factors in this multiplier.\n</p>
+  <h3 class="section">URL</h3>
+  <code>https://api.uber.com/v1/estimates/price</code>
+  <h3 class="section">HTTP Method</h3>
+  <code>GET</code>
+  <h3 class="section">Response Type</h3>
+  <div class="model" id="PriceEstimate"><a href="#">List</a></div>
+  <h3 class="section">Parameters</h3>
+  <ul>
+  	
+	  <div class="parameter">
+      
+      
+
+      
+	    <p class="param-description">Latitude component of start location.</p>
+	  </div>
+    
+	  <div class="parameter">
+      
+      
+
+      
+	    <p class="param-description">Longitude component of start location.</p>
+	  </div>
+    
+	  <div class="parameter">
+      
+      
+
+      
+	    <p class="param-description">Latitude component of end location.</p>
+	  </div>
+    
+	  <div class="parameter">
+      
+      
+
+      
+	    <p class="param-description">Longitude component of end location.</p>
+	  </div>
+    
+  </ul>
+  
+  <h2><a name="estimatesTimeGet"></a>estimatesTimeGet</h2>
+  <hr>
+  <p></p>
+  <p>The Time Estimates endpoint returns ETAs for all products offered at a given location, with the responses expressed as integers in seconds. We recommend that this endpoint be called every minute to provide the most accurate, up-to-date ETAs.</p>
+  <h3 class="section">URL</h3>
+  <code>https://api.uber.com/v1/estimates/time</code>
+  <h3 class="section">HTTP Method</h3>
+  <code>GET</code>
+  <h3 class="section">Response Type</h3>
+  <div class="model" id="Product"><a href="#">List</a></div>
+  <h3 class="section">Parameters</h3>
+  <ul>
+  	
+	  <div class="parameter">
+      
+      
+
+      
+	    <p class="param-description">Latitude component of start location.</p>
+	  </div>
+    
+	  <div class="parameter">
+      
+      
+
+      
+	    <p class="param-description">Longitude component of start location.</p>
+	  </div>
+    
+	  <div class="parameter">
+      
+      
+
+      
+	    <p class="param-description">Unique customer identifier to be used for experience customization.</p>
+	  </div>
+    
+	  <div class="parameter">
+      
+      
+
+      
+	    <p class="param-description">Unique identifier representing a specific product for a given latitude &amp; longitude.</p>
+	  </div>
+    
+  </ul>
+  
+  
+</div>
